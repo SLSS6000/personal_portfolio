@@ -32,6 +32,80 @@ const ProjectItem = ({ project, index }: { project: typeof projects[0]; index: n
 const ProjectImage = ({ project, index }: { project: typeof projects[0]; index: number }) => {
   const { ref, isVisible } = useScrollAnimation();
 
+  const getImageSizeClasses = (size: string) => {
+    switch (size) {
+      case 'large':
+        return 'col-span-2 row-span-2 w-full';
+      case 'medium':
+        return 'col-span-1 row-span-2 w-full';
+      case 'small':
+      default:
+        return 'col-span-1 row-span-1 w-full';
+    }
+  };
+
+  const getImageStyle = (size: string) => {
+    switch (size) {
+      case 'large':
+        return { width: '100%', height: '400px' };
+      case 'medium':
+        return { width: '100%', height: '300px' };
+      case 'small':
+      default:
+        return { width: '100%', height: '200px' };
+    }
+  };
+
+  const renderPortfolioLayout = () => (
+    <div className="flex gap-4 h-[600px]">
+      <div className="flex-1 flex flex-col gap-4 w-[60%]">
+        <div className="flex-1 rounded-xl overflow-hidden shadow-sm transition-all duration-300">
+          <img
+            src={project.images[0].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[0].src}
+            alt={project.images[0].alt}
+            style={{ width: '100%', height: '100%' }}
+            className="object-contain bg-white hover:-rotate-2 transition-transform duration-300 p-6"
+          />
+        </div>
+        <div className="flex-1 rounded-xl overflow-hidden shadow-sm transition-all duration-300">
+          <img
+            src={project.images[2].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[2].src}
+            alt={project.images[2].alt}
+            style={{ width: '100%', height: '100%' }}
+            className="object-contain bg-white hover:rotate-2 transition-transform duration-300 p-6"
+          />
+        </div>
+      </div>
+      <div className="w-[40%] rounded-xl overflow-hidden shadow-sm transition-all duration-300">
+        <img
+          src={project.images[1].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[1].src}
+          alt={project.images[1].alt}
+          style={{ width: '100%', height: '100%' }}
+          className="object-contain bg-white hover:-rotate-1 transition-transform duration-300 p-6"
+        />
+      </div>
+    </div>
+  );
+
+  const renderDefaultLayout = () => (
+    <div className="grid grid-cols-3 gap-4 h-[600px]">
+      {project.images.map((image, imgIndex) => (
+        <div
+          key={imgIndex}
+          className={`${getImageSizeClasses(image.size)} rounded-xl overflow-hidden shadow-sm transition-all duration-300`}
+          style={{ margin: '4px' }}
+        >
+          <img
+            src={image.src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : image.src}
+            alt={image.alt}
+            style={{ width: '100%', height: '100%' }}
+            className={`object-contain bg-white transition-transform duration-300 ${imgIndex % 2 === 0 ? 'hover:-rotate-2' : 'hover:rotate-2'} p-6`}
+          />
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <div
       ref={ref}
@@ -40,12 +114,8 @@ const ProjectImage = ({ project, index }: { project: typeof projects[0]; index: 
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="bg-gray-50 rounded-2xl p-8 mb-6">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-auto rounded-xl object-cover group-hover:scale-[1.02] transition-transform duration-500"
-        />
+      <div className="bg-gray-50 rounded-2xl p-4 mb-6">
+        {project.id === 4 ? renderPortfolioLayout() : renderDefaultLayout()}
       </div>
     </div>
   );

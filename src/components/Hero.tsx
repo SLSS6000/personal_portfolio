@@ -1,3 +1,5 @@
+import Typewriter from './Typewriter';
+
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -13,10 +15,10 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-4xl text-gray-900 mb-6 leading-relaxed animate-fade-in-up delay-100">
-          Hello! 我是一个用 Python 构建 AI 应用的实践者。
+        <h1 className="text-3xl md:text-4xl text-gray-900 mb-6 leading-relaxed">
+          <Typewriter text="Hello! 我是一个用 Python 构建 AI 应用的实践者。" speed={80} />
         </h1>
-        <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed animate-fade-in-up delay-300">
+        <p className="text-gray-600 mb-8 animate-fade-in-up delay-300" style={{ fontFamily: '"Comic Sans MS", cursive', fontSize: '15px', lineHeight: '2' }}>
           一名热爱 Python 与 AI 的在读学生 / 实习开发者。在校期间通过课程项目与实践，完成了图像分类、情感分析、简单 RAG 应用等若干 AI 小项目。善于快速学习新技术，乐于与团队协作，希望在实际项目中不断打磨工程能力，成为一名优秀的 AI 应用工程师。
         </p>
         <div className="flex flex-wrap justify-center gap-4 animate-fade-in-up delay-500">
