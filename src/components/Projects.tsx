@@ -44,18 +44,6 @@ const ProjectImage = ({ project, index }: { project: typeof projects[0]; index: 
     }
   };
 
-  const getImageStyle = (size: string) => {
-    switch (size) {
-      case 'large':
-        return { width: '100%', height: '400px' };
-      case 'medium':
-        return { width: '100%', height: '300px' };
-      case 'small':
-      default:
-        return { width: '100%', height: '200px' };
-    }
-  };
-
   const renderPortfolioLayout = () => (
     <div className="flex gap-4 h-[600px]">
       <div className="flex-1 flex flex-col gap-4 w-[60%]">
