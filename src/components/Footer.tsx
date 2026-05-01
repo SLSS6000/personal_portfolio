@@ -1,5 +1,5 @@
 const Footer = () => {
-  return (<footer className="relative py-16 overflow-hidden">
+  return (<footer id="contact" className="relative py-16 overflow-hidden">
       <div className="absolute inset-0 bg-white">
         <div className="absolute bottom-1/4 left-1/4 w-[20rem] h-[20rem] rounded-full blur-3xl opacity-80" style={{background: '#EAC6E3'}}></div>
         <div className="absolute bottom-1/3 right-1/4 w-[18rem] h-[18rem] rounded-full blur-3xl opacity-70" style={{background: '#E8E3F4'}}></div>

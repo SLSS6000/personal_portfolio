@@ -3,13 +3,13 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* 背景层 - 白色背景 */}
       <div className="absolute inset-0 bg-white">
-        {/* 不规则渐变斑点 */}
-        <div className="absolute top-1/4 left-1/4 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-80" style={{background: '#EAC6E3'}}></div>
-        <div className="absolute top-1/3 right-1/4 w-[24rem] h-[24rem] rounded-full blur-3xl opacity-70" style={{background: '#E8E3F4'}}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-[20rem] h-[20rem] rounded-full blur-3xl opacity-75" style={{background: '#F7E5DA'}}></div>
-        <div className="absolute top-1/2 left-1/2 w-[18rem] h-[18rem] rounded-full blur-3xl opacity-60" style={{background: '#EAC6E3', transform: 'translate(-50%, -50%)'}}></div>
-        <div className="absolute bottom-1/4 right-1/3 w-[16rem] h-[16rem] rounded-full blur-3xl opacity-65" style={{background: '#E8E3F4'}}></div>
-        <div className="absolute top-2/3 left-2/3 w-[14rem] h-[14rem] rounded-full blur-3xl opacity-55" style={{background: '#F7E5DA'}}></div>
+        {/* 不规则渐变斑点 - 带流动动画 */}
+        <div className="absolute top-1/4 left-1/4 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-80 animate-float" style={{background: '#EAC6E3'}}></div>
+        <div className="absolute top-1/3 right-1/4 w-[24rem] h-[24rem] rounded-full blur-3xl opacity-70 animate-float-reverse" style={{background: '#E8E3F4'}}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-[20rem] h-[20rem] rounded-full blur-3xl opacity-75 animate-float-diagonal" style={{background: '#F7E5DA'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-[18rem] h-[18rem] rounded-full blur-3xl opacity-60 animate-float" style={{background: '#EAC6E3', animationDelay: '2s'}}></div>
+        <div className="absolute bottom-1/4 right-1/3 w-[16rem] h-[16rem] rounded-full blur-3xl opacity-65 animate-float-reverse" style={{background: '#E8E3F4', animationDelay: '3s'}}></div>
+        <div className="absolute top-2/3 left-2/3 w-[14rem] h-[14rem] rounded-full blur-3xl opacity-55 animate-float-diagonal" style={{background: '#F7E5DA', animationDelay: '1.5s'}}></div>
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">

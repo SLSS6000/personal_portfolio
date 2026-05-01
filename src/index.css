@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* stylelint-disable at-rule-no-unknown */
 @theme {
   --color-primary: #8b5cf6;
   --color-primary-dark: #7c3aed;
@@ -7,6 +8,7 @@
   --color-gradient-middle: #E8E3F4;
   --color-gradient-end: #F7E5DA;
 }
+/* stylelint-enable at-rule-no-unknown */
 
 html {
   scroll-behavior: smooth;
@@ -115,4 +117,69 @@ body {
 
 .animate-fade-in-up, .animate-fade-in {
   opacity: 0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(40px, -50px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-30px, -30px);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(30px, 40px);
+    opacity: 0.65;
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translate(-50px, 35px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(25px, 50px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(-25px, -25px);
+    opacity: 0.55;
+  }
+}
+
+@keyframes floatDiagonal {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.75;
+  }
+  33% {
+    transform: translate(60px, -45px);
+    opacity: 0.55;
+  }
+  66% {
+    transform: translate(-40px, 35px);
+    opacity: 0.65;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 5s ease-in-out infinite;
+}
+
+.animate-float-diagonal {
+  animation: floatDiagonal 4.5s ease-in-out infinite;
 }
