@@ -52,7 +52,7 @@ const ProjectImage = ({ project, index }: { project: typeof projects[0]; index: 
             src={project.images[0].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[0].src}
             alt={project.images[0].alt}
             style={{ width: '100%', height: '100%' }}
-            className="object-contain bg-white hover:-rotate-2 transition-transform duration-300 p-6"
+            className="object-contain hover:-rotate-2 transition-transform duration-300 p-6"
           />
         </div>
         <div className="flex-1 rounded-xl overflow-hidden shadow-sm transition-all duration-300">
@@ -60,7 +60,7 @@ const ProjectImage = ({ project, index }: { project: typeof projects[0]; index: 
             src={project.images[2].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[2].src}
             alt={project.images[2].alt}
             style={{ width: '100%', height: '100%' }}
-            className="object-contain bg-white hover:rotate-2 transition-transform duration-300 p-6"
+            className="object-contain hover:rotate-2 transition-transform duration-300 p-6"
           />
         </div>
       </div>
@@ -69,7 +69,7 @@ const ProjectImage = ({ project, index }: { project: typeof projects[0]; index: 
           src={project.images[1].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[1].src}
           alt={project.images[1].alt}
           style={{ width: '100%', height: '100%' }}
-          className="object-contain bg-white hover:-rotate-1 transition-transform duration-300 p-6"
+          className="object-contain hover:scale-105 transition-transform duration-300 p-6"
         />
       </div>
     </div>
@@ -87,7 +87,7 @@ const ProjectImage = ({ project, index }: { project: typeof projects[0]; index: 
             src={image.src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : image.src}
             alt={image.alt}
             style={{ width: '100%', height: '100%' }}
-            className={`object-contain bg-white transition-transform duration-300 ${imgIndex % 2 === 0 ? 'hover:-rotate-2' : 'hover:rotate-2'} p-6`}
+            className={`object-contain transition-transform duration-300 ${imgIndex % 2 === 0 ? 'hover:-rotate-2' : 'hover:rotate-2'} p-6`}
           />
         </div>
       ))}
