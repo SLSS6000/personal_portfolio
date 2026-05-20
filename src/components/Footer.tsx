@@ -1,16 +1,9 @@
 const Footer = () => {
-  return (<footer id="contact" className="relative py-16 overflow-hidden">
-      <div className="absolute inset-0 bg-white">
-        <div className="absolute bottom-1/4 left-1/4 w-[20rem] h-[20rem] rounded-full blur-3xl opacity-80" style={{background: '#EAC6E3'}}></div>
-        <div className="absolute bottom-1/3 right-1/4 w-[18rem] h-[18rem] rounded-full blur-3xl opacity-70" style={{background: '#E8E3F4'}}></div>
-        <div className="absolute bottom-1/5 left-1/3 w-[16rem] h-[16rem] rounded-full blur-3xl opacity-75" style={{background: '#F7E5DA'}}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-[14rem] h-[14rem] rounded-full blur-3xl opacity-60" style={{background: '#EAC6E3', transform: 'translateX(-50%)'}}></div>
-        <div className="absolute bottom-1/5 right-1/3 w-[12rem] h-[12rem] rounded-full blur-3xl opacity-65" style={{background: '#E8E3F4'}}></div>
-        <div className="absolute bottom-1/3 left-2/3 w-[10rem] h-[10rem] rounded-full blur-3xl opacity-55" style={{background: '#F7E5DA'}}></div>
+  return (<footer id="contact" className="relative z-10 py-16 overflow-hidden">
+      <div className="absolute inset-0 bg-[#fbfbfa]">
+        {/* 装饰性网格背景 */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
       </div>
-      <div className="absolute top-0 left-0 right-0 h-24" style={{
-        background: 'linear-gradient(to bottom, white, transparent)'
-      }}></div>
       <div className="relative z-10 text-center px-4">
         <div className="flex justify-center gap-4 mb-6">
           <a href="mailto:example@email.com" className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white hover:shadow-md transition-all">

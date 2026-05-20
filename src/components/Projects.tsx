@@ -3,8 +3,11 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="projects" className="py-20 bg-[#fbfbfa] relative z-10">
+      {/* 装饰性网格背景 */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-left mb-12">
           <h2 className="text-3xl md:text-4xl text-gray-900 mb-4">
             项目展示
@@ -115,7 +118,7 @@ const ProjectContent = ({ project, index }: { project: typeof projects[0]; index
   return (
     <div
       ref={ref}
-      className={`max-w-3xl transition-all duration-700 ${
+      className={`max-w-4xl transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{ transitionDelay: `${index * 100 + 150}ms` }}

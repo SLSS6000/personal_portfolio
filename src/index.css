@@ -8,15 +8,18 @@
   --color-gradient-middle: #E8E3F4;
   --color-gradient-end: #F7E5DA;
 }
+
 /* stylelint-enable at-rule-no-unknown */
 
 html {
   scroll-behavior: smooth;
+  background-color: #fbfbfa;
 }
 
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #fbfbfa;
 }
 
 .dark body {
@@ -81,6 +84,19 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -91,6 +107,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -100,38 +117,83 @@ body {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
+.animate-slide-up-from-bottom {
+  animation: slideUpFromBottom 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-slide-up-from-bottom-slow {
+  animation: slideUpFromBottom 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
-.delay-700 { animation-delay: 0.7s; }
-.delay-800 { animation-delay: 0.8s; }
-.delay-900 { animation-delay: 0.9s; }
-.delay-1000 { animation-delay: 1s; }
+.delay-100 {
+  animation-delay: 0.1s;
+}
 
-.animate-fade-in-up, .animate-fade-in {
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+}
+
+.delay-900 {
+  animation-delay: 0.9s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.animate-fade-in-up,
+.animate-slide-up-from-bottom,
+.animate-slide-up-from-bottom-slow,
+.animate-fade-in {
   opacity: 0;
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0);
     opacity: 0.8;
   }
+
   25% {
     transform: translate(40px, -50px);
     opacity: 0.6;
   }
+
   50% {
     transform: translate(-30px, -30px);
     opacity: 0.7;
   }
+
   75% {
     transform: translate(30px, 40px);
     opacity: 0.65;
@@ -139,18 +201,23 @@ body {
 }
 
 @keyframes floatReverse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0);
     opacity: 0.7;
   }
+
   25% {
     transform: translate(-50px, 35px);
     opacity: 0.5;
   }
+
   50% {
     transform: translate(25px, 50px);
     opacity: 0.6;
   }
+
   75% {
     transform: translate(-25px, -25px);
     opacity: 0.55;
@@ -158,14 +225,18 @@ body {
 }
 
 @keyframes floatDiagonal {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0);
     opacity: 0.75;
   }
+
   33% {
     transform: translate(60px, -45px);
     opacity: 0.55;
   }
+
   66% {
     transform: translate(-40px, 35px);
     opacity: 0.65;
@@ -182,4 +253,25 @@ body {
 
 .animate-float-diagonal {
   animation: floatDiagonal 4.5s ease-in-out infinite;
+}
+
+/* 无缝循环跑马灯 */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

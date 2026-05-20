@@ -1,18 +1,9 @@
 import { useState } from 'react';
-
-interface Message {
-  id: number;
-  name: string;
-  content: string;
-  time: string;
-}
+import stampImg from '../assets/lucky-cover1.png';
 
 const Guestbook = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    { id: 1, name: '访客甲', content: '作品集很棒，期待更多作品！', time: '2026-04-28' },
-    { id: 2, name: '开发者乙', content: '交互效果很流畅，设计感十足', time: '2026-04-29' },
-  ]);
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [content, setContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -22,78 +13,97 @@ const Guestbook = () => {
 
     setIsSubmitting(true);
 
-    const newMessage: Message = {
-      id: Date.now(),
-      name: name.trim(),
-      content: content.trim(),
-      time: new Date().toISOString().split('T')[0],
-    };
-
+    // 模拟网络请求
     await new Promise(resolve => setTimeout(resolve, 500));
-
-    setMessages([newMessage, ...messages]);
+    alert("留言发送成功！");
     setName('');
+    setEmail('');
     setContent('');
     setIsSubmitting(false);
   };
 
   return (
-    <section id="guestbook" className="py-12 pb-24 bg-white">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl text-gray-900 text-center mb-12">
-          留言板
-        </h2>
+    <section id="guestbook" className="py-20 bg-[#fbfbfa] relative z-10">
+      {/* 装饰性网格背景 */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 mb-10 shadow-sm">
-          <div className="mb-4">
-            <input
-              type="text"
-              placeholder="你的名字"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors"
-              required
-            />
-          </div>
-          <div className="mb-4">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* 明信片表单 */}
+        <form onSubmit={handleSubmit} className="bg-[#fafafa] rounded-[2rem] p-8 md:p-12 border border-black shadow-[3px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-8 md:gap-12 relative overflow-hidden mb-20">
+          
+          {/* 左侧：留言内容 */}
+          <div className="flex-1 min-h-[562px]">
             <textarea
-              placeholder="说点什么吧..."
+              placeholder="Hi, 你好..."
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              rows={3}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-gray-400 focus:outline-none transition-colors resize-none"
+              className="w-full h-full min-h-[562px] bg-transparent resize-none outline-none text-gray-700 text-lg placeholder-gray-400"
               required
             />
           </div>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full py-3 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isSubmitting ? '提交中...' : '提交留言'}
-          </button>
+
+          {/* 中间分割线 (仅在大屏幕显示) */}
+          <div className="hidden md:block w-[1px] bg-gray-200"></div>
+
+          {/* 右侧：表单信息与邮票 */}
+          <div className="flex-1 flex flex-col relative pt-4 md:pt-0">
+            
+            {/* 邮票图片 */}
+            <div className="absolute top-0 right-0 -mt-6 -mr-6">
+              <img
+                src={stampImg}
+                alt="Stamp"
+                className="w-24 h-28 object-contain"
+                style={{ filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.18))' }}
+              />
+            </div>
+
+            <div className="mt-24 space-y-8 flex-1">
+              {/* 收件人 */}
+              <div>
+                <label className="block text-xs text-gray-400 mb-1">收件人</label>
+                <div className="text-gray-800 text-sm font-medium pb-2 border-b border-gray-200">
+                  me@myportfolio.com
+                </div>
+              </div>
+
+              {/* 名字 */}
+              <div>
+                <label className="block text-xs text-gray-400 mb-1">你的名字</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full bg-transparent border-b border-gray-200 pb-2 text-gray-800 text-sm focus:outline-none focus:border-gray-400 transition-colors"
+                  required
+                />
+              </div>
+
+              {/* 邮箱 */}
+              <div>
+                <label className="block text-xs text-gray-400 mb-1">你的邮箱</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-transparent border-b border-gray-200 pb-2 text-gray-800 text-sm focus:outline-none focus:border-gray-400 transition-colors"
+                />
+              </div>
+            </div>
+
+            {/* 提交按钮 */}
+            <div className="mt-10">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="px-8 py-2 bg-white rounded-xl border border-black text-gray-900 font-medium text-sm shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-[1px] active:translate-y-[1px] transition-all disabled:opacity-50"
+              >
+                {isSubmitting ? '提交中...' : '提交'}
+              </button>
+            </div>
+          </div>
         </form>
 
-        <div className="space-y-6">
-          {messages.map((msg) => (
-            <div
-              key={msg.id}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center justify-between mb-3">
-                <span className="font-medium text-gray-900">{msg.name}</span>
-                <span className="text-sm text-gray-400">{msg.time}</span>
-              </div>
-              <p className="text-gray-600 leading-relaxed">{msg.content}</p>
-            </div>
-          ))}
-        </div>
-
-        {messages.length === 0 && (
-          <p className="text-center text-gray-400 py-10">
-            还没有留言，快来留下第一条吧！
-          </p>
-        )}
       </div>
     </section>
   );
