@@ -85,6 +85,53 @@ const ProjectAccordion = ({
               {project.detail}
             </p>
 
+            {project.id === 1 && (
+              <div className="mt-8 rounded-2xl border border-gray-900 bg-white p-6 shadow-[3px_4px_0px_0px_rgba(0,0,0,1)]">
+                <p className="mb-4 text-xs font-bold uppercase tracking-wider text-gray-400">
+                  LangGraph 状态机节点拓扑与数据路由架构 (Self-RAG)
+                </p>
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch lg:justify-between">
+                  {/* Step 1 */}
+                  <div className="flex-1 rounded-xl border border-gray-300 p-3 bg-gray-50 flex flex-col justify-between">
+                    <div>
+                      <div className="inline-block rounded-full bg-[#C6A6EA] px-2 py-0.5 text-[10px] font-bold text-gray-900 mb-2 border border-gray-900">1. Router Node</div>
+                      <p className="text-xs text-gray-600 leading-relaxed"><strong>意图路由：</strong>评估用户查询是否需要联网搜索、图谱/向量库检索或直接问答。</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-center text-gray-400 text-lg font-bold lg:rotate-0 rotate-90">→</div>
+
+                  {/* Step 2 */}
+                  <div className="flex-1 rounded-xl border border-gray-300 p-3 bg-gray-50 flex flex-col justify-between">
+                    <div>
+                      <div className="inline-block rounded-full bg-[#9BE7BF] px-2 py-0.5 text-[10px] font-bold text-gray-900 mb-2 border border-gray-900">2. Retriever Node</div>
+                      <p className="text-xs text-gray-600 leading-relaxed"><strong>混合检索：</strong>并发检索 Neo4j 知识图谱与 Chroma 向量数据库，进行上下文融合召回。</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-center text-gray-400 text-lg font-bold lg:rotate-0 rotate-90">→</div>
+
+                  {/* Step 3 */}
+                  <div className="flex-1 rounded-xl border border-gray-300 p-3 bg-gray-50 flex flex-col justify-between">
+                    <div>
+                      <div className="inline-block rounded-full bg-[#EFB9B3] px-2 py-0.5 text-[10px] font-bold text-gray-900 mb-2 border border-gray-900">3. Tool Node (Web)</div>
+                      <p className="text-xs text-gray-600 leading-relaxed"><strong>检索评估与纠错：</strong>过滤不相关网页与文档；若召回缺失则调用 Tavily Web Search 进行实时补充。</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-center text-gray-400 text-lg font-bold lg:rotate-0 rotate-90">→</div>
+
+                  {/* Step 4 */}
+                  <div className="flex-1 rounded-xl border border-gray-300 p-3 bg-gray-50 flex flex-col justify-between">
+                    <div>
+                      <div className="inline-block rounded-full bg-[#F1D277] px-2 py-0.5 text-[10px] font-bold text-gray-900 mb-2 border border-gray-900">4. Generator Node</div>
+                      <p className="text-xs text-gray-600 leading-relaxed"><strong>生成与幻觉拦截：</strong>RAG 合成最终问答，并行幻觉检测与支撑度打分，确保知识无漂移。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="mt-7 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
