@@ -4,7 +4,7 @@ const Footer = () => {
         {/* 装饰性网格背景 */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
       </div>
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 mx-auto w-[92%] max-w-[1500px] text-center">
         <div className="flex justify-center gap-4 mb-6">
           <a href="mailto:example@email.com" className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white hover:shadow-md transition-all">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

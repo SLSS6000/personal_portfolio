@@ -25,7 +25,7 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full flex items-center justify-center overflow-visible"
         style={{ transform: `translateY(${-scrollY * 0.4}px)`, willChange: 'transform' }}
       >
-        <div className="relative w-full max-w-none px-4 md:px-8 flex flex-col justify-center items-center h-full z-10">
+        <div className="relative z-10 mx-auto flex h-full w-[92%] max-w-[1500px] flex-col items-center justify-center">
 
           {/* 背景巨型文本层 - 容器整体居中，内部文字块左对齐，使用 font-medium 不要加粗，在中心平衡位置上移约0.5cm */}
           <div className="relative w-full flex flex-col items-center justify-center py-12 transform -translate-y-[4vh] md:-translate-y-[5vh] z-0">

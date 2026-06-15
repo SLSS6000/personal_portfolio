@@ -1,21 +1,32 @@
-import { projects } from '../data/projects';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useState } from 'react';
+import { projects, type Project } from '../data/projects';
+import heroLuckyCover from '../assets/hero-lucky-cover.png';
 
 const Projects = () => {
+  const [activeProjectId, setActiveProjectId] = useState<number | null>(null);
+
   return (
-    <section id="projects" className="py-20 bg-[#fbfbfa] relative z-10">
-      {/* 装饰性网格背景 */}
+    <section id="projects" className="relative z-10 bg-[#fbfbfa] py-24 md:py-32">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="text-left mb-12">
-          <h2 className="text-3xl md:text-4xl text-gray-900 mb-4">
-            项目展示
-          </h2>
+      <div className="relative z-10 mx-auto grid w-[92%] max-w-[1500px] grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.75fr] lg:gap-20">
+        <div className="relative min-h-[220px]">
+          <div className="sticky top-28">
+            <h2 className="text-2xl font-semibold tracking-normal text-gray-900 md:text-4xl">
+              项目简介.
+            </h2>
+            <img src={heroLuckyCover} alt="decoration" className="pointer-events-none mt-6 hidden h-24 w-24 rotate-[-18deg] rounded-full object-cover opacity-80 lg:block" />
+          </div>
         </div>
-        <div className="space-y-36">
-          {projects.map((project, index) => (
-            <ProjectItem key={project.id} project={project} index={index} />
+
+        <div className="space-y-5">
+          {projects.map((project) => (
+            <ProjectAccordion
+              key={project.id}
+              project={project}
+              isActive={project.id === activeProjectId}
+              onSelect={() => setActiveProjectId((currentId) => (currentId === project.id ? null : project.id))}
+            />
           ))}
         </div>
       </div>
@@ -23,135 +34,71 @@ const Projects = () => {
   );
 };
 
-const ProjectItem = ({ project, index }: { project: typeof projects[0]; index: number }) => {
+const ProjectAccordion = ({
+  project,
+  isActive,
+  onSelect,
+}: {
+  project: Project;
+  isActive: boolean;
+  onSelect: () => void;
+}) => {
   return (
-    <div className="group">
-      <ProjectImage project={project} index={index} />
-      <ProjectContent project={project} index={index} />
-    </div>
-  );
-};
-
-const ProjectImage = ({ project, index }: { project: typeof projects[0]; index: number }) => {
-  const { ref, isVisible } = useScrollAnimation();
-
-  const getImageSizeClasses = (size: string) => {
-    switch (size) {
-      case 'large':
-        return 'col-span-2 row-span-2 w-full';
-      case 'medium':
-        return 'col-span-1 row-span-2 w-full';
-      case 'small':
-      default:
-        return 'col-span-1 row-span-1 w-full';
-    }
-  };
-
-  const renderPortfolioLayout = () => (
-    <div className="flex gap-4 h-[600px]">
-      <div className="flex-1 flex flex-col gap-4 w-[60%]">
-        <div className="flex-1 rounded-xl overflow-hidden shadow-sm transition-all duration-300">
-          <img
-            src={project.images[0].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[0].src}
-            alt={project.images[0].alt}
-            style={{ width: '100%', height: '100%' }}
-            className="object-contain hover:-rotate-2 transition-transform duration-300 p-6"
-          />
-        </div>
-        <div className="flex-1 rounded-xl overflow-hidden shadow-sm transition-all duration-300">
-          <img
-            src={project.images[2].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[2].src}
-            alt={project.images[2].alt}
-            style={{ width: '100%', height: '100%' }}
-            className="object-contain hover:rotate-2 transition-transform duration-300 p-6"
-          />
-        </div>
-      </div>
-      <div className="w-[40%] rounded-xl overflow-hidden shadow-sm transition-all duration-300">
-        <img
-          src={project.images[1].src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : project.images[1].src}
-          alt={project.images[1].alt}
-          style={{ width: '100%', height: '100%' }}
-          className="object-contain hover:scale-105 transition-transform duration-300 p-6"
-        />
-      </div>
-    </div>
-  );
-
-  const renderDefaultLayout = () => (
-    <div className="grid grid-cols-3 gap-4 h-[600px]">
-      {project.images.map((image, imgIndex) => (
-        <div
-          key={imgIndex}
-          className={`${getImageSizeClasses(image.size)} rounded-xl overflow-hidden shadow-sm transition-all duration-300`}
-          style={{ margin: '4px' }}
-        >
-          <img
-            src={image.src === '#' ? 'https://neeko-copilot.bytedance.net/api/text2image?prompt=modern%20web%20application%20UI%20design%20mockup%20clean%20minimal&image_size=landscape_16_9' : image.src}
-            alt={image.alt}
-            style={{ width: '100%', height: '100%' }}
-            className={`object-contain transition-transform duration-300 ${imgIndex % 2 === 0 ? 'hover:-rotate-2' : 'hover:rotate-2'} p-6`}
-          />
-        </div>
-      ))}
-    </div>
-  );
-
-  return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+    <article
+      className={`overflow-hidden rounded-[1rem] border-[1.5px] border-gray-900 bg-[#fbfbfa] shadow-[0_5px_0_#222] transition-all duration-300 ${isActive ? 'translate-y-0' : 'hover:-translate-y-1 hover:shadow-[0_7px_0_#222]'
+        }`}
     >
-      <div className="bg-gray-50 rounded-2xl p-4 mb-6">
-        {project.id === 4 ? renderPortfolioLayout() : renderDefaultLayout()}
-      </div>
-    </div>
-  );
-};
+      <button
+        type="button"
+        onClick={onSelect}
+        aria-expanded={isActive}
+        className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left text-gray-900 outline-none transition-colors focus-visible:bg-white md:px-10 md:py-8"
+      >
+        <span className="w-1/2 shrink-0 break-words text-xl font-semibold leading-tight md:text-3xl">
+          {project.summary}
+        </span>
+        <span className={`shrink-0 text-4xl font-light leading-none transition-transform duration-300 md:text-5xl ${isActive ? 'rotate-180' : ''}`}>
+          ↓
+        </span>
+      </button>
 
-const ProjectContent = ({ project, index }: { project: typeof projects[0]; index: number }) => {
-  const { ref, isVisible } = useScrollAnimation();
+      <div
+        className={`grid transition-[grid-template-rows] duration-500 ease-out ${isActive ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+          }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="px-6 pb-8 md:px-10 md:pb-10">
+            <div className="mb-7 flex items-center gap-5">
+              <div
+                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-xl font-black text-gray-900 shadow-[3px_4px_0_#f9a8d4]"
+                style={{ backgroundColor: project.logoColor }}
+              >
+                {project.logoText}
+              </div>
+              <div>
+                <h3 className="text-lg text-gray-900 md:text-xl">{project.title}</h3>
 
-  return (
-    <div
-      ref={ref}
-      className={`max-w-4xl transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
-      style={{ transitionDelay: `${index * 100 + 150}ms` }}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <h3 className="text-lg font-bold text-gray-900">
-          {project.title}
-        </h3>
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 hover:text-gray-600 transition-colors"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
+              </div>
+            </div>
+
+            <p className="max-w-5xl text-lg leading-relaxed text-gray-700 md:text-xl">
+              {project.detail}
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-gray-300 bg-white px-4 py-1.5 text-sm font-medium text-gray-600"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-      <p className="text-gray-600 leading-relaxed mb-4">
-        {project.description}
-      </p>
-      <div className="flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
+    </article>
   );
 };
 

@@ -1,20 +1,10 @@
-import project1Image from '../assets/project1-1.png';
-import project2Image from '../assets/project1-2.png';
-import project3Image from '../assets/project1-3.png';
-
-
-
-export interface ProjectImage {
-  src: string;
-  alt: string;
-  size: 'large' | 'medium' | 'small'; // 定义图片大小
-}
-
 export interface Project {
   id: number;
   title: string;
-  description: string;
-  images: ProjectImage[];
+  summary: string;
+  logoText: string;
+  logoColor: string;
+  detail: string;
   tags: string[];
   link: string;
 }
@@ -22,50 +12,46 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: '文字文字文字文字文字文字',
-    description: '文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字',
-    images: [
-      { src: '#', alt: '项目截图1', size: 'large' },
-      { src: '#', alt: '项目截图2', size: 'medium' },
-      { src: '#', alt: '项目截图3', size: 'small' },
-    ],
-    tags: ['React', 'TypeScript', 'Tailwind CSS'],
-    link: '#'
+    title: '尝尝咸淡RAG系统',
+    summary: '基于 FastAPI 与 LangGraph 构建多智能体混合检索 RAG 系统',
+    logoText: 'AG',
+    logoColor: '#9BE7BF',
+    detail:
+      '项目依托 LangGraph 搭建可分支、可循环、支持断点恢复的 Agent 任务工作流，结合 FastAPI 异步接口实现混合向量 + 图谱检索，完成复杂业务问答的任务路由、工具调用与统一异常管理。',
+    tags: ['FastAPI', 'LangGraph', 'LangChain', 'Agent', 'Tool Calling', 'Neo4j', 'Chroma', 'DeepSeek LLM'],
+    link: '#',
   },
   {
     id: 2,
-    title: '文字文字文字文字文字文字',
-    description: '文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字',
-    images: [
-      { src: '#', alt: '项目截图1', size: 'medium' },
-      { src: '#', alt: '项目截图2', size: 'large' },
-      { src: '#', alt: '项目截图3', size: 'medium' },
-    ],
-    tags: ['React', 'Firebase', 'TypeScript'],
-    link: '#'
+    title: 'Vibe Coding 个人作品集网站',
+    summary: '使用 Vite、React 与 Tailwind CSS 构建的现代化个人作品集',
+    logoText: 'VC',
+    logoColor: '#C6A6EA',
+    detail:
+      '本作品集网站通过低代码 Vibe Coding 快速搭建，整体采用柔和干净的卡片视觉风格，统一手绘简约设计语言；页面划分项目展示区、技术介绍区，每个项目独立卡片承载标题、项目简介、核心技术标签，可跳转对应 Github 源码仓库；站点为纯静态页面，无后端依赖，轻量化部署至 Netlify，加载速度快、兼容性强，用于集中沉淀、展示本人 RAG、大模型智能体、FastAPI 后端等 AI 全栈实战项目。',
+    tags: ['Vibe Coding', 'React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Netlify'],
+    link: '#',
   },
   {
     id: 3,
-    title: '文字文字文字文字文字文字',
-    description: '文字文字文字文字文字文字文字文字文字文字文字文字文字',
-    images: [
-      { src: '#', alt: '项目截图1', size: 'small' },
-      { src: '#', alt: '项目截图2', size: 'large' },
-      { src: '#', alt: '项目截图3', size: 'small' },
-    ],
-    tags: ['React', 'D3.js', 'Python'],
-    link: '#'
+    title: '霉豆腐摆摊APP(Demo)',
+    summary: '霉豆腐摆摊APP(开发中)',
+    logoText: 'GM',
+    logoColor: '#EFB9B3',
+    detail:
+      '',
+    tags: ['', '', ''],
+    link: '#',
   },
   {
     id: 4,
-    title: '个人作品集网站',
-    description: 'Vibecoding 打造了一个现代化个人作品集网站，基于 React + TypeScript + Tailwind CSS 构建，最后使用vercel部署上线。网站充分利用 React 的组件化与 Hooks 管理页面状态与交互，TypeScript 保证了代码的可维护性与类型安全，Tailwind CSS 则实现了高效、一致且响应式的视觉风格。整体包含项目展示、技能图谱、博客随笔及联系我等模块，并针对移动端与桌面端进行了全面适配。',
-    images: [
-      { src: project1Image, alt: '作品集网站', size: 'large' },
-      { src: project2Image, alt: '移动端预览', size: 'medium' },
-      { src: project3Image, alt: '深色模式', size: 'small' },
-    ],
-    tags: ['React', 'TypeScript', 'Tailwind CSS'],
-    link: '#'
-  }
+    title: '智慧医疗微信小程序',
+    summary: '基于微信小程序的轻量级个人健康管理与移动医疗预约挂号系统',
+    logoText: 'ZH',
+    logoColor: '#F1D277',
+    detail:
+      '本项目是一款面向个人及家庭的一站式智慧医疗微信小程序，旨在为用户提供便捷的移动就医和日常健康管理服务。系统主要包含以下核心功能板块：健康数据监测、移动预约挂号、药品便捷查询、健康资讯科普、日程服药提醒...',
+    tags: ['Native Mini Program Framework', 'Node.js'],
+    link: '#',
+  },
 ];

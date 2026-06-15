@@ -25,7 +25,7 @@ const Header = () => {
             : 'py-6'
           }`}
       >
-        <nav className="relative flex items-center justify-between w-full max-w-7xl mx-auto">
+        <nav className="relative mx-auto flex w-[92%] max-w-[1500px] items-center justify-between">
           {/* 左侧姓名/Logo - 下滑时平滑淡出隐藏 */}
           <div className={`flex items-center transition-all duration-300 ${isScrolled ? 'opacity-0 pointer-events-none -translate-x-4' : 'opacity-100 translate-x-0'}`}>
             <a href="#" className={`text-gray-900 font-bold font-sans hover:text-gray-700 transition-colors text-base md:text-lg tracking-wide ${isMobileMenuOpen ? 'hidden md:block' : ''}`}>
@@ -47,7 +47,7 @@ const Header = () => {
           <div className="flex items-center gap-4 ml-auto">
             <a
               href="#contact"
-              className={`text-gray-900 font-sans tracking-wide hover:text-gray-600 transition-colors text-base md:text-lg font-medium underline underline-offset-4 transition-all duration-300 ${isScrolled ? 'block' : 'hidden md:block'}`}
+              className={`text-gray-900 font-bold font-sans tracking-wide hover:text-gray-700 transition-colors text-base md:text-lg underline underline-offset-[8px] transition-all duration-300 ${isScrolled ? 'block' : 'hidden md:block'}`}
             >
               联系我
             </a>
@@ -97,7 +97,7 @@ const Header = () => {
             <a
               href="#contact"
               onClick={closeMobileMenu}
-              className="text-gray-600 font-sans tracking-wide hover:text-gray-900 transition-colors text-xl underline underline-offset-4"
+              className="text-gray-600 font-sans tracking-wide hover:text-gray-900 transition-colors text-xl underline underline-offset-[8px]"
             >
               联系我
             </a>

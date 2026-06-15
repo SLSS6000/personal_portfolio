@@ -27,17 +27,17 @@ const Guestbook = () => {
       {/* 装饰性网格背景 */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="relative z-10 mx-auto w-[92%] max-w-[1500px]">
         {/* 明信片表单 */}
         <form onSubmit={handleSubmit} className="bg-[#fafafa] rounded-[2rem] p-8 md:p-12 border border-black shadow-[3px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-8 md:gap-12 relative overflow-hidden mb-20">
           
           {/* 左侧：留言内容 */}
-          <div className="flex-1 min-h-[562px]">
+          <div className="flex-1 min-h-[640px]">
             <textarea
               placeholder="Hi, 你好..."
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="w-full h-full min-h-[562px] bg-transparent resize-none outline-none text-gray-700 text-lg placeholder-gray-400"
+              className="w-full h-full min-h-[640px] bg-transparent resize-none outline-none text-gray-700 text-lg placeholder-gray-400"
               required
             />
           </div>
