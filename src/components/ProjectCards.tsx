@@ -130,7 +130,6 @@ const ProjectCards = () => {
                   >
                     <div className="px-2 pb-4 text-white md:px-4 md:pb-5">
                       <h3 className="text-3xl font-black leading-tight md:text-5xl">{card.title}</h3>
-                      <p className="mt-2 text-sm font-semibold opacity-90 md:text-base">{card.subtitle}</p>
                     </div>
                     <div className="aspect-square w-full overflow-hidden rounded-3xl bg-white">
                       <img
