@@ -18,28 +18,28 @@ const ProjectCards = () => {
   const stackCards = [
     {
       title: '尝尝咸淡RAG系统',
-      description: 'Read more',
+      description: '查看源码',
       color: '#9BE7BF',
       image: projectcards1,
       rotate: -4,
     },
     {
       title: 'AI赛博小镇',
-      description: 'Read more',
+      description: '查看源码',
       color: '#C6A6EA',
       image: projectcards2,
       rotate: 3,
     },
     {
       title: '个人作品集网站',
-      description: 'Read more',
+      description: '查看源码',
       color: '#EFB9B3',
       image: projectcards3,
       rotate: -2,
     },
     {
       title: '智慧医疗小程序',
-      description: 'Read more',
+      description: '查看源码',
       color: '#F1D277',
       image: projectcards4,
       rotate: 4,

@@ -24,12 +24,12 @@ export const projects: Project[] = [
   {
     id: 2,
     title: 'AI Town - Pepper & Carrot 奇幻世界',
-    summary: '基于多智能体系统的交互式奇幻游戏小镇，融合 LLM 驱动的 NPC 自主行为、记忆系统与好感度机制，打造沉浸式角色扮演体验。',
+    summary: '基于HelloAgents多智能体框架的2D奇幻游戏，实现AI NPC的智能对话、记忆系统和动态好感度机制。',
     logoText: 'AI',
     logoColor: '#EFB9B3',
     detail:
-      'AI Town 采用前后端分离架构，前端基于 Godot 4.x + GDScript 构建交互式 2D 场景，后端使用 FastAPI + Python 3.10+ 提供异步 RESTful API。核心创新是多智能体系统，每个 NPC 都是独立的 AI Agent，基于 HelloAgents 框架集成阿里云通义千问大模型，拥有个性化角色设定和独立记忆空间。设计了双层记忆架构（工作记忆 + 情景记忆），通过 Qdrant 向量数据库实现语义检索和智能遗忘机制。好感度系统使用 LLM 驱动的情感分析实现五级关系评价，动态影响对话内容。批量对话生成器将 3 次 API 调用优化为 1 次，节省 66% Token 消耗并降低延迟至 1-2 秒。NPC 自主行为通过 Godot CharacterBody2D 物理系统实现巡逻、伙伴跟随和交互三种模式。混合存储架构支持从 JSON 文件无缝切换到 Qdrant + Neo4j，日志系统完整追踪交互生命周期。系统性能优异：API 响应 1.2 秒、前端稳定 60 FPS、单实例支持 10+ 玩家在线，具备良好的水平扩展和 MOD 支持能力。',
-    tags: ['Godot', 'FastAPI', 'HelloAgents', 'Qdrant', 'Neo4j'],
+      '赛博小镇是一款结合Godot游戏引擎与HelloAgents多智能体框架的AI驱动2D游戏。项目以《Pepper & Carrot》奇幻世界为背景，包含女巫学徒胡椒、魔法猫胡萝卜和香料商人七味三个AI NPC角色。系统通过FastAPI后端提供RESTful API服务，集成LLM实现自然语言对话、短期/长期记忆管理、情感分析和动态好感度系统（5个等级）。NPC具备自主行为能力，每30秒生成独立对话内容，支持玩家实时交互。数据存储采用Qdrant向量数据库（记忆检索）、Neo4j图数据库（关系网络）和SQLite（本地持久化），形成完整的多智能体游戏解决方案。',
+    tags: ['Godot', 'FastAPI + Python 3.10+', 'HelloAgents', 'DashScope API', 'Qdrant', 'Neo4j', 'SQLite'],
     link: '#',
   },
   {
