@@ -24,14 +24,14 @@ const ProjectCards = () => {
       rotate: -4,
     },
     {
-      title: '个人作品集网站',
+      title: 'AI赛博小镇',
       description: 'Read more',
       color: '#C6A6EA',
       image: projectcards2,
       rotate: 3,
     },
     {
-      title: '霉豆腐摆摊APP',
+      title: '个人作品集网站',
       description: 'Read more',
       color: '#EFB9B3',
       image: projectcards3,
@@ -43,7 +43,7 @@ const ProjectCards = () => {
       color: '#F1D277',
       image: projectcards4,
       rotate: 4,
-    },
+    }
   ];
 
   useEffect(() => {

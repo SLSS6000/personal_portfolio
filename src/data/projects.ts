@@ -23,6 +23,17 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    title: 'AI Town - Pepper & Carrot 奇幻世界',
+    summary: '基于多智能体系统的交互式奇幻游戏小镇，融合 LLM 驱动的 NPC 自主行为、记忆系统与好感度机制，打造沉浸式角色扮演体验。',
+    logoText: 'AI',
+    logoColor: '#EFB9B3',
+    detail:
+      'AI Town 采用前后端分离架构，前端基于 Godot 4.x + GDScript 构建交互式 2D 场景，后端使用 FastAPI + Python 3.10+ 提供异步 RESTful API。核心创新是多智能体系统，每个 NPC 都是独立的 AI Agent，基于 HelloAgents 框架集成阿里云通义千问大模型，拥有个性化角色设定和独立记忆空间。设计了双层记忆架构（工作记忆 + 情景记忆），通过 Qdrant 向量数据库实现语义检索和智能遗忘机制。好感度系统使用 LLM 驱动的情感分析实现五级关系评价，动态影响对话内容。批量对话生成器将 3 次 API 调用优化为 1 次，节省 66% Token 消耗并降低延迟至 1-2 秒。NPC 自主行为通过 Godot CharacterBody2D 物理系统实现巡逻、伙伴跟随和交互三种模式。混合存储架构支持从 JSON 文件无缝切换到 Qdrant + Neo4j，日志系统完整追踪交互生命周期。系统性能优异：API 响应 1.2 秒、前端稳定 60 FPS、单实例支持 10+ 玩家在线，具备良好的水平扩展和 MOD 支持能力。',
+    tags: ['Godot', 'FastAPI', 'HelloAgents', 'Qdrant', 'Neo4j'],
+    link: '#',
+  },
+  {
+    id: 3,
     title: 'Vibe Coding 个人作品集网站',
     summary: '基于 Vite + React 构建的响应式个人作品集网站，用于集中展示项目经历与技术能力。',
     logoText: 'VC',
@@ -30,17 +41,6 @@ export const projects: Project[] = [
     detail:
       '基于 Vite + React 构建的现代化个人作品集网站，采用模块化组件结构设计，实现项目展示、个人介绍与联系方式等核心页面功能。通过卡片式布局与滚动交互设计优化信息展示层级，提高内容可读性与视觉一致性。项目包含响应式布局适配不同设备尺寸，并通过 Netlify 进行部署，实现从开发到上线的完整前端工程流程。整体结构强调可扩展性与维护性，支持后续快速新增项目模块与内容更新。',
     tags: ['React', 'Vite', 'TailwindCSS', 'Netlify'],
-    link: '#',
-  },
-  {
-    id: 3,
-    title: '霉豆腐摆摊助手移动端系统',
-    summary: '霉豆腐摆摊助手移动端系统(开发中)',
-    logoText: 'GM',
-    logoColor: '#EFB9B3',
-    detail:
-      '',
-    tags: ['', '', '', '', ''],
     link: '#',
   },
   {

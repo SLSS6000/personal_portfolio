@@ -133,9 +133,9 @@ const ProjectAccordion = ({
             )}
 
             <div className="mt-7 flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
+              {project.tags.filter(Boolean).map((tag, index) => (
                 <span
-                  key={tag}
+                  key={`${tag}-${index}`}
                   className="rounded-full border border-gray-300 bg-white px-4 py-1.5 text-sm font-medium text-gray-600"
                 >
                   {tag}
