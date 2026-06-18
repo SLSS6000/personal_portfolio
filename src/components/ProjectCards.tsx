@@ -3,9 +3,6 @@ import projectcards1 from '../assets/projectcards1.png';
 import projectcards2 from '../assets/projectcards2.png';
 import projectcards3 from '../assets/projectcards3.png';
 import projectcards4 from '../assets/projectcards4.png';
-import aiTownVideo from '../assets/video/AI-Town视频演示.mp4';
-import ragVideo from '../assets/video/Rag-尝尝咸淡演示视频.mp4';
-import smartHealthcareVideo from '../assets/video/Smart_Healthcare视频演示.mp4';
 
 
 import heroLuckyCover from '../assets/hero-lucky-cover.png';
@@ -13,10 +10,20 @@ import heroLuckyCover from '../assets/hero-lucky-cover.png';
 
 const clamp = (value: number, min = 0, max = 1) => Math.min(Math.max(value, min), max);
 
+const getEmbedUrl = (url: string) => {
+  const match = url.match(/video\/(BV[a-zA-Z0-9]+)/);
+  if (match && match[1]) {
+    return `https://player.bilibili.com/player.html?bvid=${match[1]}&page=1&high_quality=1&as_wide=1&autoplay=0`;
+  }
+  return url;
+};
+
 const ProjectCards = () => {
   const stackRef = useRef<HTMLElement>(null);
   const [stackProgress, setStackProgress] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(900);
+
+  const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
 
   const stackCards = [
     {
@@ -25,7 +32,7 @@ const ProjectCards = () => {
       image: projectcards2,
       rotate: 3,
       codeUrl: 'https://github.com/SLSS6000/HelloAgents-AI-Town',
-      demoUrl: aiTownVideo,
+      demoUrl: 'https://www.bilibili.com/video/BV1RJjc6KEYY/?spm_id_from=333.1387.upload.video_card.click&vd_source=80dbec56d52a54a9400df55644edc3f1',
     },
     {
       title: '尝尝咸淡RAG系统',
@@ -33,7 +40,7 @@ const ProjectCards = () => {
       image: projectcards1,
       rotate: -4,
       codeUrl: 'https://github.com/SLSS6000/Rag-TasteTheFlavor',
-      demoUrl: ragVideo,
+      demoUrl: 'https://www.bilibili.com/video/BV1LJjc6TE3q/?spm_id_from=333.1387.homepage.video_card.click&vd_source=80dbec56d52a54a9400df55644edc3f1',
     },
     {
       title: '个人作品集网站',
@@ -49,7 +56,7 @@ const ProjectCards = () => {
       image: projectcards4,
       rotate: 4,
       codeUrl: 'https://github.com/SLSS6000/',
-      demoUrl: smartHealthcareVideo,
+      demoUrl: 'https://www.bilibili.com/video/BV1XWjc6YE4E/?vd_source=80dbec56d52a54a9400df55644edc3f1',
     }
   ];
 
@@ -148,7 +155,19 @@ const ProjectCards = () => {
                     <div className="px-2 pt-4 text-center text-white md:px-4 md:pt-5 flex items-center justify-center gap-2 text-xs font-bold md:text-sm">
                       <a href={card.codeUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">查看源码</a>
                       <span className="opacity-60">/</span>
-                      <a href={card.demoUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">查看演示</a>
+                      {card.demoUrl && card.demoUrl !== '#' ? (
+                        <button
+                          type="button"
+                          onClick={() => setActiveVideoUrl(card.demoUrl)}
+                          className="underline hover:text-gray-200 cursor-pointer bg-transparent border-0 p-0 text-white font-bold text-xs md:text-sm"
+                        >
+                          查看演示
+                        </button>
+                      ) : (
+                        <span className="opacity-40 cursor-not-allowed">
+                          查看演示
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -157,6 +176,35 @@ const ProjectCards = () => {
           </div>
         </div>
       </div>
+      {activeVideoUrl && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 backdrop-blur-md transition-opacity duration-300"
+          onClick={() => setActiveVideoUrl(null)}
+        >
+          <div
+            className="relative w-[90%] max-w-4xl aspect-video rounded-3xl border border-white/10 bg-black shadow-2xl overflow-hidden animate-fade-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setActiveVideoUrl(null)}
+              className="absolute right-4 top-4 z-[110] flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors border border-white/10 cursor-pointer"
+              aria-label="Close video"
+            >
+              ✕
+            </button>
+            <iframe
+              src={getEmbedUrl(activeVideoUrl)}
+              scrolling="no"
+              border="0"
+              frameBorder="no"
+              framespacing="0"
+              allowFullScreen={true}
+              className="w-full h-full border-0 rounded-3xl"
+            ></iframe>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
