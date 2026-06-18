@@ -80,6 +80,8 @@ const Hero = () => {
             <img
               src={heroPotato}
               alt="Hu Xiaoke Avatar"
+              fetchPriority="high"
+              loading="eager"
               className="w-full h-auto object-contain filter drop-shadow-[0_8px_32px_rgba(0,0,0,0.06)] pointer-events-auto"
             />
           </div>
@@ -90,6 +92,8 @@ const Hero = () => {
           <img
             src={heroLuckyCover}
             alt="Lucky Flower Bottom Left"
+            fetchPriority="high"
+            loading="eager"
             className="w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24 -rotate-[15deg] animate-float filter drop-shadow-sm"
             style={{ animationDuration: '4s' }}
           />
@@ -100,6 +104,8 @@ const Hero = () => {
           <img
             src={heroLuckyCover}
             alt="Lucky Flower Bottom Right"
+            fetchPriority="high"
+            loading="eager"
             className="w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40 rotate-[20deg] animate-float-reverse filter drop-shadow-sm"
             style={{ animationDuration: '5s' }}
           />
