@@ -196,9 +196,6 @@ const ProjectCards = () => {
             <iframe
               src={getEmbedUrl(activeVideoUrl)}
               scrolling="no"
-              border="0"
-              frameBorder="no"
-              framespacing="0"
               allowFullScreen={true}
               className="w-full h-full border-0 rounded-3xl"
             ></iframe>
