@@ -23,18 +23,18 @@ const About = () => {
           {/* 右侧：文字结构占比 70% */}
           <div className="flex flex-col justify-center pr-0 text-left">
             <h2 className="text-2xl md:text-3xl text-gray-900 mb-12 md:mb-16 leading-relaxed font-medium animate-fade-in-up">
-              专注于大模型应用开发与RAG系统构建，具备从数据处理、检索增强到LLM生成的完整AI应用工程能力。
+              专注于 AI Agent（智能体集群）开发与高级 RAG 系统架构，具备将大模型生态与全栈工程技术深度融合的落地能力。
             </h2>
             <h4>
-              主要实践方向包括：
-              RAG 检索增强生成系统（Vector / Graph RAG）、
-              LLM Agent 工作流设计（LangGraph / Tool Calling）、
-              AI Web 应用全栈开发（React + FastAPI）
+              核心技术方向包括：
+              <strong>多智能体集群（Multi-Agent System）</strong>设计、
+              <strong>自适应检索增强生成（Self-RAG）</strong>架构、
+              <strong>全栈 AI 交互应用（FastAPI + React / 移动端端云协同）</strong>。
             </h4>
             <br />
             <br />
             <p className="text-gray-600 text-sm md:text-base leading-loose animate-fade-in-up delay-300">
-              在技术沉淀与项目实践上，我构建了以 <strong>LLM & Agent</strong> 为核心的多元化实战栈。我主导开发了<strong>「尝尝咸淡RAG系统」</strong>，依托 LangGraph 状态机重构传统线性 RAG，实现了具备“检索-评估-纠错-生成”智能化闭环的高级纠错检索系统，并结合 FastAPI 异步框架、Neo4j 知识图谱与 Chroma 向量数据库，大幅提升复杂问答的准确度。同时，我拥有良好的跨平台开发经验，包括使用微信原生框架和 Node.js 研发的<strong>「智慧医疗微信小程序」</strong>，以及开发中的<strong>「霉豆腐摆摊APP」</strong>。我深信 <strong>AI-Native / Vibe Coding</strong> 的开发范式，能熟练运用 AI 辅助工具极速落地想法（如本作品集网站的搭建与 Netlify 部署）。我拥有强烈的技术好奇心与快速学习能力，期待将 Agent 架构与全栈开发能力转化为真实的业务生产力。
+              在实际工程落地中，我坚持以<strong>数据驱动与智能流控</strong>为导向构建复杂 AI 应用。在智能体领域，我开发了 <strong>「AI 赛博小镇」</strong> 游戏后端，基于 HelloAgents 框架并融合了 Neo4j 图数据库（人际网络关系）与 Qdrant 向量数据库（长短期记忆检索），实现了自主角色决策与动态好感度演化系统。在检索增强生成方向，我主导设计了 <strong>「尝尝咸淡 RAG 系统」</strong>，利用 LangGraph 状态机重构了传统 RAG 流水线，构建了包含意图路由、混合检索评估以及幻觉拦截的高性能 Self-RAG 流程。此外，我具有坚实的全栈与跨平台开发能力，独立开发了 <strong>「智慧医疗微信小程序」</strong> 移动端服务。作为 <strong>Vibe Coding</strong> 的坚定实践者，我熟练掌握现代化工具链与工程化部署（如本作品集的响应式开发与云端托管）。我热爱前沿技术探索，致力于将 AI 赋能的交互模式与底层系统工程融合，创造兼具商业价值与卓越用户体验的产品。
             </p>
           </div>
         </div>

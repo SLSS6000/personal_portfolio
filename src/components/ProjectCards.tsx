@@ -3,6 +3,9 @@ import projectcards1 from '../assets/projectcards1.png';
 import projectcards2 from '../assets/projectcards2.png';
 import projectcards3 from '../assets/projectcards3.png';
 import projectcards4 from '../assets/projectcards4.png';
+import aiTownVideo from '../assets/video/AI-Town视频演示.mp4';
+import ragVideo from '../assets/video/Rag-尝尝咸淡演示视频.mp4';
+import smartHealthcareVideo from '../assets/video/Smart_Healthcare视频演示.mp4';
 
 
 import heroLuckyCover from '../assets/hero-lucky-cover.png';
@@ -17,32 +20,36 @@ const ProjectCards = () => {
 
   const stackCards = [
     {
-      title: '尝尝咸淡RAG系统',
-      description: '查看源码',
-      color: '#9BE7BF',
-      image: projectcards1,
-      rotate: -4,
-    },
-    {
       title: 'AI赛博小镇',
-      description: '查看源码',
       color: '#C6A6EA',
       image: projectcards2,
       rotate: 3,
+      codeUrl: 'https://github.com/SLSS6000/HelloAgents-AI-Town',
+      demoUrl: aiTownVideo,
+    },
+    {
+      title: '尝尝咸淡RAG系统',
+      color: '#9BE7BF',
+      image: projectcards1,
+      rotate: -4,
+      codeUrl: 'https://github.com/SLSS6000/Rag-TasteTheFlavor',
+      demoUrl: ragVideo,
     },
     {
       title: '个人作品集网站',
-      description: '查看源码',
       color: '#EFB9B3',
       image: projectcards3,
       rotate: -2,
+      codeUrl: 'https://github.com/SLSS6000/personal_portfolio',
+      demoUrl: '#',
     },
     {
       title: '智慧医疗小程序',
-      description: '查看源码',
       color: '#F1D277',
       image: projectcards4,
       rotate: 4,
+      codeUrl: 'https://github.com/SLSS6000/',
+      demoUrl: smartHealthcareVideo,
     }
   ];
 
@@ -138,8 +145,10 @@ const ProjectCards = () => {
                         className="h-full w-full object-cover"
                       />
                     </div>
-                    <div className="px-2 pt-4 text-center text-white md:px-4 md:pt-5">
-                      <a href="https://github.com/SLSS6000" target="_blank" rel="noopener noreferrer" className="underline text-xs font-bold md:text-sm">{card.description}</a>
+                    <div className="px-2 pt-4 text-center text-white md:px-4 md:pt-5 flex items-center justify-center gap-2 text-xs font-bold md:text-sm">
+                      <a href={card.codeUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">查看源码</a>
+                      <span className="opacity-60">/</span>
+                      <a href={card.demoUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">查看演示</a>
                     </div>
                   </div>
                 </div>
