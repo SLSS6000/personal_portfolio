@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import stampImg from '../assets/lucky-cover1.png';
+import stampImg from '../assets/.webp/lucky-cover1.webp';
 
 const Guestbook = () => {
   const [name, setName] = useState('');

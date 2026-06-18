@@ -1,4 +1,4 @@
-import aboutLuckyClover from '../assets/about-lucky-clover.png';
+import aboutLuckyClover from '../assets/.webp/about-lucky-clover.webp';
 
 const About = () => {
   return (

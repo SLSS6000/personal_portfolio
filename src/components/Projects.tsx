@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { projects, type Project } from '../data/projects';
-import heroLuckyCover from '../assets/hero-lucky-cover.png';
+import heroLuckyCover from '../assets/.webp/hero-lucky-cover.webp';
 
 const Projects = () => {
   const [activeProjectId, setActiveProjectId] = useState<number | null>(null);

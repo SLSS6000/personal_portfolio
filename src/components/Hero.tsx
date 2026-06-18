@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import heroPotato from '../assets/hero-potato.png';
-import heroLuckyCover from '../assets/hero-lucky-cover.png';
+import heroPotato from '../assets/.webp/hero-potato.webp';
+import heroLuckyCover from '../assets/.webp/hero-lucky-cover.webp';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);

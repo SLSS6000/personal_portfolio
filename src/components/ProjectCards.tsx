@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import projectcards1 from '../assets/projectcards1.png';
-import projectcards2 from '../assets/projectcards2.png';
-import projectcards3 from '../assets/projectcards3.png';
-import projectcards4 from '../assets/projectcards4.png';
+import projectcards1 from '../assets/.webp/projectcards1.webp';
+import projectcards2 from '../assets/.webp/projectcards2.webp';
+import projectcards3 from '../assets/.webp/projectcards3.webp';
+import projectcards4 from '../assets/.webp/projectcards4.webp';
 
 
-import heroLuckyCover from '../assets/hero-lucky-cover.png';
+import heroLuckyCover from '../assets/.webp/hero-lucky-cover.webp';
 
 
 const clamp = (value: number, min = 0, max = 1) => Math.min(Math.max(value, min), max);
