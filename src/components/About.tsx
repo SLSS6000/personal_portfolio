@@ -22,20 +22,17 @@ const About = () => {
 
           {/* 右侧：文字结构占比 70% */}
           <div className="flex flex-col justify-center pr-0 text-left">
-            <h2 className="text-2xl md:text-3xl text-gray-900 mb-12 md:mb-16 leading-relaxed font-medium animate-fade-in-up">
-              专注于 AI Agent（智能体集群）开发与高级 RAG 系统架构，具备将大模型生态与全栈工程技术深度融合的落地能力。
-            </h2>
-            <h4>
-              核心技术方向包括：
-              <strong>多智能体集群（Multi-Agent System）</strong>设计、
-              <strong>自适应检索增强生成（Self-RAG）</strong>架构、
-              <strong>全栈 AI 交互应用（FastAPI + React / 移动端端云协同）</strong>。
-            </h4>
-            <br />
-            <br />
+            <h3 className="text-4xl md:text-5xl text-gray-1000 mb-12 md:mb-16 leading-relaxed font-medium animate-fade-in-up">
+              I am the quality guard behind your product.
+            </h3>
             <p className="text-gray-600 text-sm md:text-base leading-loose animate-fade-in-up delay-300">
-              在实际工程落地中，我坚持以<strong>数据驱动与智能流控</strong>为导向构建复杂 AI 应用。在智能体领域，我开发了 <strong>「AI 赛博小镇」</strong> 游戏后端，基于 HelloAgents 框架并融合了 Neo4j 图数据库（人际网络关系）与 Qdrant 向量数据库（长短期记忆检索），实现了自主角色决策与动态好感度演化系统。在检索增强生成方向，我主导设计了 <strong>「尝尝咸淡 RAG 系统」</strong>，利用 LangGraph 状态机重构了传统 RAG 流水线，构建了包含意图路由、混合检索评估以及幻觉拦截的高性能 Self-RAG 流程。此外，我具有坚实的全栈与跨平台开发能力，独立开发了 <strong>「智慧医疗微信小程序」</strong> 移动端服务。作为 <strong>Vibe Coding</strong> 的坚定实践者，我熟练掌握现代化工具链与工程化部署（如本作品集的响应式开发与云端托管）。我热爱前沿技术探索，致力于将 AI 赋能的交互模式与底层系统工程融合，创造兼具商业价值与卓越用户体验的产品。
+              之前探索过 AI Agent 相关开发，在实践中慢慢转向软件测试方向；既有后端开发基础，更擅长站在用户角度审视产品，挖掘潜在问题。
+              专注软件测试，擅长接口测试、Web 功能测试、自动化测试实践；具备从需求分析、用例设计，到缺陷管理、CI/CD 流水线基础落地能力。
+              细心、耐心，愿意反复打磨细节；遇到报错不会轻易摆烂，喜欢一点点拆解定位问题。日常喜欢整理笔记，会把踩过坑沉淀成文档。不局限于只会点点点，希望做懂开发思维的测试工程师。
+              期待可以参与产品质量保障工作，在项目中持续成长，用测试思维为产品保驾护航。
             </p>
+         
+            
           </div>
         </div>
       </div>

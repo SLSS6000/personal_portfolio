@@ -1,18 +1,18 @@
 const TechStack = () => {
   const techs = [
     'Python',
-    'LLM',
-    'Langchain',
-    'Langgragh',
-    'Agent',
-    'Rag',
+    'JavaScript',
+    'JMETER',
+    'SELENIUM',
+    'JENKINS',
+    'Postman',
     'SQL',
     'Linux',
     'Git',
   ];
 
   return (
-    <section className="relative z-10 w-full h-[45vh] bg-[#fbfbfa] overflow-hidden flex items-center">
+    <section className="relative z-10 w-full h-[45vh] bg-[#fbfbfa] overflow-hidden flex items-center -mt-20 md:-mt-32">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
 
       <div className="relative w-full overflow-hidden flex items-center">

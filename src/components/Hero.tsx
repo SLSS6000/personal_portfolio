@@ -29,7 +29,7 @@ const Hero = () => {
 
           {/* 背景巨型文本层 - 容器整体居中，内部文字块左对齐，使用 font-medium 不要加粗，在中心平衡位置上移约0.5cm */}
           <div className="relative w-full flex flex-col items-center justify-center py-12 transform -translate-y-[4vh] md:-translate-y-[5vh] z-0">
-            <div className="flex flex-col items-start justify-center font-medium uppercase text-gray-900 select-none tracking-[0.03em] leading-[0.98] text-left max-w-full">
+            <div className="flex flex-col items-start justify-center w-full font-medium uppercase text-gray-900 select-none tracking-[0.03em] leading-[0.98] text-left max-w-full">
 
               {/* 第一行: * ARTIFICIAL */}
               <div className="overflow-hidden w-full pb-2">
@@ -49,7 +49,7 @@ const Hero = () => {
                     <line x1="4.93" y1="19.07" x2="19.07" y2="4.93" />
                   </svg>
                   <span className="text-[13.5vw] md:text-[11vw] lg:text-[13rem] font-sans">
-                    ARTIFICIAL
+                    SOFTWARE
                   </span>
                 </div>
               </div>
@@ -57,7 +57,7 @@ const Hero = () => {
               {/* 第二行: INTELLIGENCE */}
               <div className="overflow-hidden w-full pb-2">
                 <div className="text-[13.5vw] md:text-[11vw] lg:text-[13rem] font-sans w-full text-left animate-slide-up-from-bottom delay-300">
-                  INTELLIGENCE
+                  TESTING
                 </div>
               </div>
 

@@ -63,7 +63,7 @@ const Guestbook = () => {
               <div>
                 <label className="block text-xs text-gray-400 mb-1">收件人</label>
                 <div className="text-gray-800 text-sm font-medium pb-2 border-b border-gray-200">
-                  me@myportfolio.com
+                  huxk0913@163.com
                 </div>
               </div>
 

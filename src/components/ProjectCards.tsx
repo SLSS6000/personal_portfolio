@@ -26,6 +26,22 @@ const ProjectCards = () => {
   const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
 
   const stackCards = [
+     {
+      title: 'Todo任务管理系统测试项目',
+      color: '#9BE7BF',
+      image: projectcards1,
+      rotate: -4,
+      codeUrl: 'https://github.com/SLSS6000/Rag-TasteTheFlavor',
+      demoUrl: '#',
+    },
+     {
+      title: 'Fake Store API 接口自动化测试项目',
+      color: '#EFB9B3',
+      image: projectcards3,
+      rotate: -2,
+      codeUrl: 'https://github.com/SLSS6000/personal_portfolio',
+      demoUrl: '#',
+    },
     {
       title: 'AI赛博小镇',
       color: '#C6A6EA',
@@ -34,22 +50,7 @@ const ProjectCards = () => {
       codeUrl: 'https://github.com/SLSS6000/HelloAgents-AI-Town',
       demoUrl: 'https://www.bilibili.com/video/BV1RJjc6KEYY/?spm_id_from=333.1387.upload.video_card.click&vd_source=80dbec56d52a54a9400df55644edc3f1',
     },
-    {
-      title: '尝尝咸淡RAG系统',
-      color: '#9BE7BF',
-      image: projectcards1,
-      rotate: -4,
-      codeUrl: 'https://github.com/SLSS6000/Rag-TasteTheFlavor',
-      demoUrl: 'https://www.bilibili.com/video/BV1LJjc6TE3q/?spm_id_from=333.1387.homepage.video_card.click&vd_source=80dbec56d52a54a9400df55644edc3f1',
-    },
-    {
-      title: '个人作品集网站',
-      color: '#EFB9B3',
-      image: projectcards3,
-      rotate: -2,
-      codeUrl: 'https://github.com/SLSS6000/personal_portfolio',
-      demoUrl: '#',
-    },
+   
     {
       title: '智慧医疗小程序',
       color: '#F1D277',
@@ -143,7 +144,7 @@ const ProjectCards = () => {
                     style={{ backgroundColor: card.color }}
                   >
                     <div className="px-2 pb-4 text-white md:px-4 md:pb-5">
-                      <h3 className="text-3xl font-black leading-tight md:text-5xl">{card.title}</h3>
+                      <h3 className="text-2xl font-black leading-tight md:text-3xl">{card.title}</h3>
                     </div>
                     <div className="aspect-square w-full overflow-hidden rounded-3xl bg-white">
                       <img
@@ -161,11 +162,11 @@ const ProjectCards = () => {
                           onClick={() => setActiveVideoUrl(card.demoUrl)}
                           className="underline hover:text-gray-200 cursor-pointer bg-transparent border-0 p-0 text-white font-bold text-xs md:text-sm"
                         >
-                          查看演示
+                          查看详情
                         </button>
                       ) : (
                         <span className="opacity-40 cursor-not-allowed">
-                          查看演示
+                          查看详情
                         </span>
                       )}
                     </div>
@@ -196,6 +197,9 @@ const ProjectCards = () => {
             <iframe
               src={getEmbedUrl(activeVideoUrl)}
               scrolling="no"
+              border="0"
+              frameBorder="no"
+              framespacing="0"
               allowFullScreen={true}
               className="w-full h-full border-0 rounded-3xl"
             ></iframe>
